@@ -57,11 +57,11 @@ extern "C" JNIEXPORT void JNICALL Java_cx_minecraft_leveldb_DB_nativeReleaseOpti
 (JNIEnv * env, jclass cls, jlong options_pointer) {
 	Options* options = reinterpret_cast<Options*>(options_pointer);
 
-	delete options->filter_policy;
+	delete options->info_log;
 
 	delete options->block_cache;
 
-	delete options->info_log;
+	delete options->filter_policy;
 
 	delete options;
 }

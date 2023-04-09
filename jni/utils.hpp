@@ -22,7 +22,7 @@ inline std::string to_string(JNIEnv* env, jstring jstr) {
 	const char* chars = env->GetStringUTFChars(jstr, nullptr);
 	std::string str(chars);
 	env->ReleaseStringUTFChars(jstr, chars);
-	return std::move(str);
+	return str;
 }
 
 inline std::string to_string(JNIEnv* env, jbyteArray jbytes) {
@@ -30,7 +30,7 @@ inline std::string to_string(JNIEnv* env, jbyteArray jbytes) {
 	jbyte* bytes = env->GetByteArrayElements(jbytes, nullptr);
 	std::string str(reinterpret_cast<char*>(bytes), len);
 	env->ReleaseByteArrayElements(jbytes, bytes, JNI_ABORT);
-	return std::move(str);
+	return str;
 }
 
 inline void checkStatus(JNIEnv* env, leveldb::Status& status) {

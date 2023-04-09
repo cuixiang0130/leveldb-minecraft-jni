@@ -1,2 +1,2 @@
-rootProject.name = "leveldb"
+rootProject.name = "leveldb-jni"
 
